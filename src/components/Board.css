@@ -1,0 +1,59 @@
+/* src/Board.css */
+
+/* General board styling */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 20px; /* Space below the board */
+}
+
+/* Styling for each square on the board */
+.square {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Light gray background for the square */
+  font-size: 2rem;
+  font-weight: bold;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.2s; /* Added transition for hover effect */
+}
+
+/* When hovering over a square, change the background color */
+.square:hover {
+  background-color: #ddd;
+  transform: scale(1.05); /* Slight zoom effect when hovered */
+}
+
+/* Style for the "X" (Blue) */
+.square.x {
+  color: blue; /* Set X to blue */
+}
+
+/* Style for the "O" (Pink) */
+.square.o {
+  color: pink; /* Set O to pink */
+}
+
+/* For winning combination squares */
+.square.winner {
+  background-color: #ffeb3b; /* Highlight winning squares with yellow */
+  border: 2px solid #ff9800; /* Orange border for winner squares */
+}
+
+/* Optional: Add some shadow to the board for a 3D effect */
+.board {
+  background-color: white; /* White background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow around the board */
+}

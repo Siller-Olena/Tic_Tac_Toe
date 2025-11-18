@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Board.css'; // Ensure the CSS is being imported
 
 function Game() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [isXNext, setIsXNext] = useState(true);
-  const [winner, setWinner] = useState(null);
+  const [squares, setSquares] = useState(Array(9).fill(null)); // State for the game board (9 squares, initially all empty)
+  const [isXNext, setIsXNext] = useState(true); // State to track whose turn it is (true = 'X' is next, false = 'O' is next)
+  const [winner, setWinner] = useState(null); // State to store the winner ('X', 'O', or null if the game is ongoing)
   const [leaderboard, setLeaderboard] = useState([]); // Store leaderboard names
   const [showLeaderboard, setShowLeaderboard] = useState(false); // For showing leaderboard modal
   const [playerName, setPlayerName] = useState(''); // Store player name input
@@ -70,18 +70,26 @@ function Game() {
   };
 
   // Render the board with squares
-  const renderSquare = (index) => {
-    return (
-      <div
-        className={`square ${squares[index] === 'X' ? 'x' : squares[index] === 'O' ? 'o' : ''}`}
-        onClick={() => handleClick(index)}
-      >
-        {squares[index]}
-      </div>
-    );
-  };
+    const renderSquare = (index) => {
 
-  return (
+    return (
+
+      <div
+
+        className={`square ${squares[index] === 'X' ? 'x' : squares[index] === 'O' ? 'o' : ''}`}
+
+        onClick={() => handleClick(index)}
+
+      >
+
+        {squares[index]}
+
+      </div>
+
+    );
+
+  };
+    return (
     <div className="App">
       <h1>Tic-Tac-Toe</h1>
       <div className="status">
@@ -139,6 +147,6 @@ function Game() {
       )}
     </div>
   );
-}
 
+}
 export default Game;

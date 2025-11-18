@@ -1,112 +1,154 @@
-/* Reset margin and padding globally */
+/* Скидання глобальних стилів */
 * {
+  /* Скидаємо стандартні відступи браузера для забезпечення одноманітності вигляду на різних пристроях. */
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* Встановлюємо, що padding та border (внутрішні відступи та рамка) враховуються у загальній ширині/висоті елемента. */
+  box-sizing: border-box; 
 }
 
-/* Body styling */
+/* Стилі для основного тіла сторінки */
 body {
+  /* Задаємо основний шрифт для всього додатка. */
   font-family: 'Arial', sans-serif;
+  /* Встановлюємо висоту тіла на повну висоту вікна перегляду (для центрування). */
   height: 100vh;
-  background-color: #b6b6ff;  /* Light pink background */
+  /* Встановлюємо світлий фіолетовий фон. */
+  background-color: #b6b6ff;
+  /* Використовуємо Flexbox для центрування вмісту гри (.App) по центру екрана. */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-/* Main App container */
+/* Основний контейнер додатку */
 .App {
+  /* Центруємо текст та внутрішні елементи. */
   text-align: center;
+  /* Встановлюємо білий фон контейнера для контрасту. */
   background-color: #fff;
+  /* Закруглені кути для м'якшого вигляду. */
   border-radius: 15px;
+  /* Додаємо тінь для глибини та виділення контейнера на тлі. */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Внутрішні відступи. */
   padding: 30px;
+  /* Задаємо фіксовану ширину, що добре виглядає на мобільних пристроях. */
   width: 350px;
+  /* Встановлюємо інший фон для контейнера (світло-зелений). */
   background-color: #b6ffd7;
-  border: 3px solid #3f14ff; /* Pink border around the game container */
+  /* Яскрава рамка для акценту. */
+  border: 3px solid #3f14ff; 
+  /* Налаштовуємо внутрішній Flexbox для вертикального розташування елементів. */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Title of the game */
+/* Заголовок гри */
 h1 {
+  /* Великий розмір шрифту. */
   font-size: 2.5rem;
+  /* Темний колір тексту. */
   color: #333;
+  /* Відступ знизу для відділення від ігрового поля. */
   margin-bottom: 20px;
   font-weight: 600;
 }
 
-/* Status text (next player or winner) */
+/* Текст статусу (наступний хід або переможець) */
 .status {
+  /* Розмір шрифту для повідомлень. */
   font-size: 1.25rem;
   color: #333;
+  /* Відступ знизу. */
   margin-bottom: 20px;
+  /* Виділяємо жирним. */
   font-weight: bold;
-  text-align: center;  /* Ensure status text is centered */
+  text-align: center;
 }
 
 .status span {
+  /* Додатково виділяємо ім'я гравця або слово "Переможець:". */
   font-weight: 600;
 }
 
-/* Board Styling */
+/* Стилі для ігрової дошки (Board) */
 .board {
+  /* Використовуємо Grid для створення сітки 3x3. */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* 3 Columns */
-  grid-template-rows: repeat(3, 1fr);     /* 3 Rows */
-  gap: 10px; /* Distance between cells */
+  /* Створюємо 3 однакові за шириною колонки. */
+  grid-template-columns: repeat(3, 1fr); 
+  /* Створюємо 3 однакові за висотою рядки. */
+  grid-template-rows: repeat(3, 1fr); 
+  /* Відстань між клітинками. */
+  gap: 10px; 
   width: 100%;
-  max-width: 300px; /* Maximum size of the board */
+  /* Обмежуємо максимальний розмір дошки. */
+  max-width: 300px; 
   margin: 0 auto;
-  height: 300px;  /* Set fixed height for the board */
+  /* Встановлюємо фіксовану висоту, щоб дошка мала ідеально квадратну форму. */
+  height: 300px; 
 }
 
-/* Cell styling (individual squares) */
+/* Стилі для окремої клітинки (Square) */
 .square {
+  /* Клітинка займає весь простір, наданий Grid. */
   width: 100%;
   height: 100%;
+  /* Великий шрифт для символів X/O. */
   font-size: 3rem;
+  /* Світло-сірий фон клітинки. */
   background-color: #f5f5f5;
+  /* Межі клітинки. */
   border: 2px solid #ccc;
+  /* Flexbox для центрування символу X/O всередині клітинки. */
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Змінюємо курсор, щоб показати, що клітинка інтерактивна. */
   cursor: pointer;
+  /* Додаємо плавну анімацію для ефектів наведення/натискання. */
   transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+  /* Закруглюємо кути клітинок. */
   border-radius: 10px;
 }
 
-/* Hover effect for the squares */
+/* Ефект при наведенні миші на клітинку */
 .square:hover {
+  /* Злегка освітлюємо фон при наведенні миші. */
   background-color: #eaeaea;
 }
 
-/* Active (click) effect for squares */
+/* Ефект при натисканні на клітинку */
 .square:active {
+  /* Зменшуємо клітинку при натисканні для візуального відгуку. */
   transform: scale(0.95);
 }
 
-/* Focus outline for accessibility */
+/* Стилі для фокусу (доступність) */
 .square:focus {
+  /* Видаляємо стандартний outline і додаємо власну тінь для доступності. */
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Color for X */
+/* Колір для символу X */
 .square.x {
-  color: blue;  /* X is blue */
+  /* X є синім. */
+  color: blue;
 }
 
-/* Color for O */
+/* Колір для символу O */
 .square.o {
-  color: rgb(222, 12, 47);  /* O is pink */
+  /* O є червоним/рожевим. */
+  color: rgb(222, 12, 47); 
 }
 
-/* Input field for entering name after a win */
+/* Поле введення імені (після перемоги) */
 input[type="text"] {
+  /* Стилізація поля для введення імені. */
   padding: 5px;
   font-size: 1rem;
   margin-right: 10px;
@@ -115,11 +157,12 @@ input[type="text"] {
   border-radius: 5px;
 }
 
-/* Button styling */
+/* Загальна стилізація кнопок */
 button {
   padding: 10px 15px;
   font-size: 1rem;
-  background-color: #2f25ee;  /* Pink background */
+  /* Основний синій колір для кнопок. */
+  background-color: #2f25ee;
   border: none;
   color: white;
   border-radius: 5px;
@@ -128,37 +171,43 @@ button {
 }
 
 button:hover {
-  background-color: #144fff;  /* Darker pink when hovered */
+  /* Темніший колір при наведенні. */
+  background-color: #144fff;
 }
 
-/* Modal overlay for name input and leaderboard */
+/* Оверлей (фон) для модальних вікон (введення імені та таблиця лідерів) */
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  /* Створюємо напівпрозорий чорний шар, який покриває весь екран. */
+  background-color: rgba(0, 0, 0, 0.5); 
+  /* Фіксуємо позицію, щоб модальне вікно залишалося видимим. */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  /* Flexbox для центрування модального вікна. */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Modal content styling */
+/* Стилізація самого модального вікна (контенту) */
 .modal {
+  /* Білий фон та внутрішні відступи. */
   background-color: white;
   padding: 20px;
   border-radius: 10px;
+  /* Адаптивна ширина для мобільних пристроїв. */
   width: 80%;
   max-width: 400px;
   text-align: center;
 }
 
-/* Styling for buttons in modals */
-button {
+/* Стилі для кнопок у модальних вікнах (дублюються для специфічності) */
+.modal button { /* Додано .modal для специфічності */
   padding: 10px 15px;
   font-size: 1rem;
-  background-color: #4620ee; /* Pink background */
+  background-color: #4620ee; 
   border: none;
   color: white;
   border-radius: 5px;
@@ -166,28 +215,31 @@ button {
   margin-top: 10px;
 }
 
-/* Hover effect for buttons in modal */
-button:hover {
-  background-color: #ff1493; /* Darker pink when hovered */
+/* Ефект при наведенні на кнопки в модальному вікні */
+.modal button:hover { /* Додано .modal для специфічності */
+  background-color: #ff1493;
 }
 
-/* Styling for buttons container (row layout) */
+/* Контейнер для кнопок під дошкою (кнопки "Нова гра", "Лідерборд") */
 .buttons-container {
+  /* Розміщуємо кнопки в рядок і розносимо їх по краях. */
   display: flex;
   justify-content: space-between;
-  margin-top: 20px; /* Space between the board and the buttons */
+  /* Відступ від ігрового поля. */
+  margin-top: 20px; 
   width: 100%;
-  max-width: 500px; /* Set max-width to prevent buttons from being too wide */
+  max-width: 500px; 
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Add margin between buttons */
+/* Додаємо відступ між кнопками */
 .buttons-container button {
+  /* Додаємо невеликий відступ між кнопками. */
   margin-right: 10px;
 }
 
-/* Remove margin-right for the last button in the row */
+/* Видаляємо відступ для останньої кнопки в ряду, щоб вона не виходила за межі контейнера */
 .buttons-container button:last-child {
   margin-right: 0;
 }
